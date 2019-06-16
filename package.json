@@ -1,0 +1,24 @@
+{
+  "name": "gennode_authorization_mw",
+  "version": "0.0.1",
+  "description": "Authorization middleware that connects with gennode_authorization service",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nathan-mersha/gennode_authorization_mw.git"
+  },
+  "keywords": [
+    "gennode",
+    "authorization",
+    "middleware"
+  ],
+  "author": "Nathan Mersha",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nathan-mersha/gennode_authorization_mw/issues"
+  },
+  "homepage": "https://github.com/nathan-mersha/gennode_authorization_mw#readme"
+}
