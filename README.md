@@ -7,7 +7,7 @@ Nathan Mersha
 
 Gennode authorization middleware is available on npm, type:
 
-`$npm i gennode_authorization_mw`
+`$ npm i gennode_authorization_mw`
 
 
 ### Description
@@ -15,9 +15,9 @@ This module is a middleware to be plugged in your server as described [here](htt
 to be used along with the other 2 libraries in the cluster. The main function of the middleware is to parse and send request to **GenNode Authorization** server and either responds
 with 401 (unAuthorized) or 200(Authorized) response.
 
-#### How to use it
+### How to use it
 
-1. Initialize the middleware with a constructor
+###### 1. Initialize the middleware with a constructor
 
 ```javascript
 let GennodeAuthMW = require('gennode_authorization_mw');
@@ -47,14 +47,15 @@ let GennodeAuthMWInstance = new GennodeAuthMW({
 |getToken           |A function that returns the token value from the request (Can be overridden)          | Returns the token value from the 'Bearer tokenValue' by the authorization key from the header|
 
 
-2. Insert the middleware in your express application, like this : 
+###### 2. Insert the middleware in your express application, like this :
 
 ```javascript
 let express = require('express');
 let app = express();
 
 // Insert your middleware in to your express application
-app.use(GennodeAuthMWInstance.authorize);
+app.use(GennodeAuthMWInstance.authorize); // Now every request will pass through the gennode_authorization_service
+
 
 ```
 
