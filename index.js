@@ -211,6 +211,13 @@ class GennodeAuthorizationMiddleware {
             token    = this.mergedConfig.getToken(req,res);
 
         let body = {
+            ip          : req.ip,
+            params      : req.params,
+            path        : req.path,
+            query       : req.query,
+            secure      : req.secure,
+            xhr         : req.xhr,
+
             route       : req.url,
             method      : req.method,
             body        : !req.body ? null : req.body,
