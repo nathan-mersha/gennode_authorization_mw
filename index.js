@@ -14,7 +14,8 @@ class GennodeAuthorizationMiddleware {
      * @param userConfig        - User configuration
      * @example
      * {
-            host            : "localhost",
+            host             : "localhost",
+            service          : null,
             port             : 3400,
             endpoint         : "/auth/token/validate",
             connection       : "http", // http call, seneca // todo future seneca support
@@ -45,6 +46,7 @@ class GennodeAuthorizationMiddleware {
         // Define default configuration
         this.defaultConfig = {
             host    : "localhost",
+            service : null,
             port    : 3400,
             endpoint : "/auth/token/validate",
             connection : "http", // http call, seneca // todo future seneca support
@@ -211,6 +213,7 @@ class GennodeAuthorizationMiddleware {
             token    = this.mergedConfig.getToken(req,res);
 
         let body = {
+            service     : this.mergedConfig.service,
             ip          : req.ip,
             params      : req.params,
             path        : req.path,

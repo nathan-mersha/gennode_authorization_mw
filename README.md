@@ -23,6 +23,7 @@ with 401 (unAuthorized) or 200(Authorized) response.
 let GennodeAuthMW = require('gennode_authorization_mw');
 let GennodeAuthMWInstance = new GennodeAuthMW({
         host    : "localhost",
+        service : "Service name",
         port    : 3400,
         endpoint : "/auth/token/validate",
         connection : "http", // http call, seneca // future seneca support
@@ -38,6 +39,7 @@ let GennodeAuthMWInstance = new GennodeAuthMW({
 | Configuration | Description | Default |
 |:------------:|:-----------:|:-----------:|
 |host               |Gennode Authorization service host | localhost |
+|service            |Service name | null |
 |port               |Gennode Authorization port         | 3400 |
 |endpoint           |Token validator endpoint           | /auth/token/validate |
 |connection         |Communication type (Current support : http) for future seneca support | http |
