@@ -231,13 +231,19 @@ class GennodeAuthorizationMiddleware {
         if(token){ // Perform authorization request if token exists.
             let constructedEndpoint = `http://${this.mergedConfig.host}${this.mergedConfig.port ? `:${this.mergedConfig.port}` : ""}${this.mergedConfig.endpoint}`;
             this.sendRequest(body,"POST",constructedEndpoint,(error, response, body) =>{
-                if(response.statusCode === 200){ // Request of the resource is authorized.
-                    next();
-                }else {
-                    body.detail = this.mergedConfig.message.notAuthorized;
-                    res.status(response.statusCode);
-                    res.json(body);
+                if(response !== undefined){
+                    if(response.statusCode === 200){ // Request of the resource is authorized.
+                        next();
+                    }else {
+                        body.detail = this.mergedConfig.message.notAuthorized;
+                        res.status(response.statusCode);
+                        res.json(body);
+                    }
+                }else{
+                    res.status(401);
+                    res.json({message : "Access Denied"});
                 }
+
             });
         }
     }
